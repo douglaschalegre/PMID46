@@ -2,6 +2,7 @@ import Knex from 'knex';
 
 export async function up(knex: Knex){
     return knex.schema.createTable('students', table => {
+
         table.increments('id').primary();
         table.string('name').notNullable();
         table.string('address');
@@ -11,6 +12,7 @@ export async function up(knex: Knex){
         table.string('registration').unique().notNullable();
         table.string('phone').notNullable();
         table.string('email').notNullable();
+        
     });
 }
 
