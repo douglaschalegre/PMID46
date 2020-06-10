@@ -11,6 +11,7 @@ export async function seed(knex: Knex){
         registration:'1171513030',
         phone:'8298214848',
         email:'douglas@email.com',
+        password:'1171513030'
       },
       { 
         name: 'Ragazzi',
@@ -21,8 +22,8 @@ export async function seed(knex: Knex){
         registration:'1171516969',
         phone:'82999787070',
         email:'ragazzi@email.com',
+        password:'1171516969'
       },
         
-
     ]);
 };
