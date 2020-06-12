@@ -10,10 +10,10 @@ export async function up(knex: Knex){
         table.string('details');
         
         table.integer('created_by').notNullable()
-        .references('id').inTable('collects');
+        .references('id').inTable('psadmin');
     });
 }
 
 export async function down(knex: Knex){
-    return knex.schema.dropTable('students');
+    return knex.schema.dropTable('pacient');
 }
