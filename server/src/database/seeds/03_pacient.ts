@@ -1,7 +1,7 @@
 import Knex from 'knex';
 
 export async function seed(knex: Knex){
-    await knex('pacient').insert([
+    await knex('pacients').insert([
         { 
         name: 'Costa',
         specialization:'dentistica',
@@ -15,7 +15,7 @@ export async function seed(knex: Knex){
         specialization:'dentistica',
         tooth:'7',
         details:'dentes quebrados pois tentou comer um prato, sem sucesso.',
-        phone:'',
+        phone:'8299991122',
         created_by:1
       },
 
