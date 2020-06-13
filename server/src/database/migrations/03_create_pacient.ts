@@ -11,6 +11,7 @@ export async function up(knex: Knex){
         
         table.integer('created_by').notNullable()
         .references('id').inTable('psadmin');
+        table.boolean('taken').notNullable();
     });
 }
 
