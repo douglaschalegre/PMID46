@@ -1,5 +1,6 @@
 import express from 'express';
 import {celebrate, Joi} from 'celebrate';
+import passport from 'passport';
 
 import StudentsController from './controller/studentsController';
 import PacientsController from './controller/pacientsController';
