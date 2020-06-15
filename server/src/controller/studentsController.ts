@@ -1,4 +1,5 @@
 import { Request, Response } from 'express';
+import bcrypt from 'bcrypt';
 import knex from '../database/connection';
 
 class studentsController {
@@ -35,7 +36,7 @@ class studentsController {
             phone,
             email
         } = request.body;
-        const password = registration
+        const password = await bcrypt.hash(registration, 10)
 
         const student = {
             name,
