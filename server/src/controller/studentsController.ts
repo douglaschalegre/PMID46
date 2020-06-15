@@ -50,7 +50,7 @@ class studentsController {
             password
         }
 
-        const insertedStudent = await knex('students').insert(student);
+        await knex('students').insert(student);
 
         return response.json(student);
     }
