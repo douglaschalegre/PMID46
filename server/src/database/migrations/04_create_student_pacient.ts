@@ -7,12 +7,12 @@ export async function up(knex: Knex){
         table.integer('student_id').notNullable()
         .references('id').inTable('students');
 
-        table.integer('pacient_by').notNullable()
+        table.integer('pacient_id').notNullable()
         .references('id').inTable('pacients');
 
         table.date('appointment').notNullable();
         table.boolean('confirmed').notNullable();
-        table.boolean('happened').notNullable();
+        table.boolean('done').notNullable();
     });
 }
 

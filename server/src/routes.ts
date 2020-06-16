@@ -5,12 +5,14 @@ import checkJwt from './middleware/checkJwt'
 import StudentsController from './controller/studentsController';
 import PacientsController from './controller/pacientsController';
 import LoginsController from './controller/loginsController';
+import AppointmentsController from './controller/appointmentsController';
 
 const routes = express.Router();
 
 const studentsController = new StudentsController();
 const pacientsController = new PacientsController();
 const loginsController = new LoginsController();
+const appointmentsController = new AppointmentsController();
 
 // ADMIN PAGES
 routes.post('/Admin/login',
@@ -72,5 +74,6 @@ celebrate({
     pwd: Joi.string().required()
  })
 },{}), loginsController.student);
+routes.post('/criarConsulta', checkJwt, appointmentsController.create);
 
 export default routes
