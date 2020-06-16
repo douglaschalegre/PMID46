@@ -1,17 +1,26 @@
 import express from 'express';
 import {celebrate, Joi} from 'celebrate';
-import passport from 'passport';
+import checkJwt from './middleware/checkJwt'
 
 import StudentsController from './controller/studentsController';
 import PacientsController from './controller/pacientsController';
+import LoginsController from './controller/loginsController';
 
 const routes = express.Router();
 
 const studentsController = new StudentsController();
 const pacientsController = new PacientsController();
+const loginsController = new LoginsController();
 
-
-routes.post('/criarAluno',
+// ADMIN PAGES
+routes.post('/Admin/login',
+celebrate({
+  body: Joi.object().keys({
+    user: Joi.string().required(),
+    pwd: Joi.string().required()
+ })
+},{}), loginsController.admin);
+routes.post('/Admin/criarAluno',
  celebrate({
     body: Joi.object().keys({
       name: Joi.string().required(),
@@ -25,11 +34,19 @@ routes.post('/criarAluno',
    })
  },{
    abortEarly: false
- }) ,studentsController.create);
-routes.get('/Alunos', studentsController.index);
-routes.get('/Alunos/:registration', studentsController.show);
+ }), studentsController.create);
+routes.get('/Admin/Alunos', studentsController.index);
+routes.get('/Admin/Alunos/:registration', studentsController.show);
 
-routes.post('/criarPaciente',
+// ADMIN WHO CREATES THE PACIENTS
+routes.post('/Psadmin/login',
+celebrate({
+  body: Joi.object().keys({
+    user: Joi.string().required(),
+    pwd: Joi.string().required()
+ })
+},{}), loginsController.psadmin);
+routes.post('/Adminps/criarPaciente', checkJwt, 
 celebrate({
    body: Joi.object().keys({
      name: Joi.string().required(),
@@ -42,7 +59,18 @@ celebrate({
 },{
   abortEarly: false
 }) ,pacientsController.create);
-routes.get('/Pacientes', pacientsController.index);
-routes.get('/Pacientes/:id', pacientsController.show);
+
+// APP & ADMIN
+routes.get('/Pacientes', checkJwt, pacientsController.index);
+routes.get('/Pacientes/:id', checkJwt, pacientsController.show);
+
+// STUDENTS
+routes.post('/login',
+celebrate({
+  body: Joi.object().keys({
+    user: Joi.string().required(),
+    pwd: Joi.string().required()
+ })
+},{}), loginsController.student);
 
 export default routes
