@@ -22,15 +22,18 @@ class pacientsController {
             tooth,
             details,
             created_by
-        } = request.body;
 
+        } = request.body;
+        const taken = false;
+        
         const pacient = {
           name,
           specialization,
           phone,
           tooth,
           details,
-          created_by
+          created_by,
+          taken
         }
 
         await knex('pacients').insert(pacient);

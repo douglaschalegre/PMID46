@@ -1,4 +1,5 @@
 import Knex from 'knex';
+import bcrypt from 'bcrypt';
 
 export async function seed(knex: Knex){
     await knex('admin').insert([
@@ -6,7 +7,8 @@ export async function seed(knex: Knex){
         name: 'Douglas',
         phone:'8298214848',
         email:'douglas@email.com',
-        password: 'password'
+        password: `${await bcrypt.hash('password', 10)}`,
+        role: 'admin'
       },
    
 

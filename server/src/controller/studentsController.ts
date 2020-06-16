@@ -36,7 +36,8 @@ class studentsController {
             phone,
             email
         } = request.body;
-        const password = await bcrypt.hash(registration, 10)
+        const password = await bcrypt.hash(registration, 10);
+        const role = 'student';
 
         const student = {
             name,
@@ -47,7 +48,8 @@ class studentsController {
             registration,
             phone,
             email,
-            password
+            password,
+            role
         }
 
         await knex('students').insert(student);
