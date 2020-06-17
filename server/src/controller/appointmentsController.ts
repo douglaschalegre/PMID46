@@ -15,22 +15,22 @@ class appointmentsController {
         const {
             pacient_id,
             student_id,
-            date,
-        } = request.params;
+            appointment,
+        } = request.body;
         const confirmed = false;
         const done = false;
 
         const trx = await knex.transaction();
 
-        const appointment = {
+        const appointmentx = {
             student_id,
             pacient_id,
-            date,
+            appointment,
             confirmed,
             done
         }
-
-        const insertedAppointment = await trx('student_pacients').insert(appointment);
+        console.log(appointmentx)
+        const insertedAppointment = await trx('student_pacients').insert(appointmentx);
         const pacientUpdate = await trx('pacients')
         .where('id', pacient_id)
         .update({
@@ -39,6 +39,36 @@ class appointmentsController {
         await trx.commit();
 
         return response.json({pacientUpdate, insertedAppointment});
+    }
+
+    async confirm(request: Request, response: Response) {
+        
+        const {
+            appointment_id,
+        } = request.body;
+
+        const appointment = await knex('student_pacients')
+        .where('id', appointment_id)
+        .update({
+            confirmed: true
+        })
+
+        return response.json({appointment});
+    }
+
+    async done(request: Request, response: Response) {
+        
+        const {
+            appointment_id,
+        } = request.body;
+
+        const appointment = await knex('student_pacients')
+        .where('id', appointment_id)
+        .update({
+            done: true
+        })
+
+        return response.json({appointment});
     }
 }
 
