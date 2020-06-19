@@ -74,6 +74,22 @@ celebrate({
     pwd: Joi.string().required()
  })
 },{}), loginsController.student);
-routes.post('/criarConsulta', checkJwt, appointmentsController.create);
+routes.post('/criarConsulta', celebrate({
+  body: Joi.object().keys({
+    pacient_id: Joi.number().required(),
+    student_id: Joi.number().required(),
+    appointment: Joi.date().required()
+ })
+},{}), checkJwt, appointmentsController.create);
+routes.post('/Consulta/confirmar', celebrate({
+  body: Joi.object().keys({
+    appointment_id: Joi.number().required()
+ })
+},{}), checkJwt, appointmentsController.confirm);
+routes.post('/Consulta/concluida', celebrate({
+  body: Joi.object().keys({
+    appointment_id: Joi.number().required()
+ })
+},{}), checkJwt, appointmentsController.done);
 
 export default routes

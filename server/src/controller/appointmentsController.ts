@@ -11,7 +11,7 @@ class appointmentsController {
     }
 
     async create(request: Request, response: Response) {
-        
+    
         const {
             pacient_id,
             student_id,
