@@ -15,7 +15,7 @@ const LandingPage = () => {
             PMID46
           </span>
 
-          <Link to="/create-collect">
+          <Link to="/admin/login">
 						<span><FiLogIn/></span>
 						<strong>Entrar</strong>
 					</Link>
