@@ -1,6 +1,6 @@
 #page-home {
   height: 100vh;
-  background: url('../../assets/landing.svg') no-repeat 45vw bottom;
+  background: url('../../assets/landing.svg') no-repeat 100% 110%;
 }
 
 #page-home .content{
@@ -108,7 +108,20 @@
   background: #37669c;
 }
 
+@media(max-height: 700px ) {
+  #page-home {
+    height: 100vh;
+    background: url('../../assets/landing.svg') no-repeat 150% -10%;
+  }
+
+}
+
 @media(max-width: 900px) {
+  #page-home {
+    height: 100vh;
+    background: url('../../assets/landing.svg') no-repeat 70% -190%;
+  }
+
   #page-home .content {
     align-items: center;
     text-align: center;
@@ -120,6 +133,7 @@
 
   #page-home .content main {
     align-items: center;
+    margin-top: 7rem;
   }
 
   #page-home .content main h1 {
