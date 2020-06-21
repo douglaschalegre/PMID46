@@ -1,6 +1,6 @@
 #page-home {
   height: 100vh;
-  background: url('../../assets/landing.svg') no-repeat 600px bottom;
+  background: url('../../assets/landing.svg') no-repeat 900px bottom;
 }
 
 #page-home .content{
@@ -10,12 +10,33 @@
   margin: 0 auto;
   padding: 0 30px;
 
-  display: inline-block;
+  display: flex;
   flex-direction: column;
+
 }
 
 #page-home .content header{
-  margin: 48px 0 0;
+  margin-top: 48px;
+}
+
+#page-home .content .header{
+  display: flex;
+  justify-content: space-between;
+}
+
+#page-home .content .header div{
+  display: flex;
+  align-items: center;
+}
+
+#page-home .content .header div span{
+  margin-left: 1rem;
+  margin-right: 1rem;
+}
+
+#page-home .content .header div a{
+  display: flex;
+  align-items: center;
 }
 
 #page-home .content main {

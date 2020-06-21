@@ -9,17 +9,27 @@ const LandingPage = () => {
 	return(
 		<div id="page-home">
 			<div className="content">
+				
 				<header>
-            <img src={logo} alt="PMID46" width="48" height="48"/>
+					<div className="header">
+						<div className="center-label">
+							<img src={logo} alt="PMID46" width="48" height="48"/>
+							<span>PMID46</span>
+						</div>
+
+						<div className="center-label">
+							<Link to="/admin/login">
+								<span><FiLogIn size={48}/></span>
+								<strong>Entrar</strong>
+							</Link>
+						</div>
+					</div>
 				</header>
 
 				<main>
 					<h1>Gerencie com facilidade seus cadastros.</h1>
 					<p>Entre para ter acesso ao painel</p>
-					<Link to="/admin/login" >
-							<span><FiLogIn/></span>
-							<strong>Entrar</strong>
-						</Link>
+
 				</main>
 			</div>
 	  </div>
