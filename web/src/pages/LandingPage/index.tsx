@@ -12,12 +12,12 @@ const LandingPage = () => {
 				
 				<header>
 					<div className="header">
-						<div className="center-label">
+						<div>
 							<img src={logo} alt="PMID46" width="48" height="48"/>
-							<span>PMID46</span>
+							<h2>PMID46</h2>
 						</div>
 
-						<div className="center-label">
+						<div>
 							<Link to="/admin/login">
 								<span><FiLogIn size={48}/></span>
 								<strong>Entrar</strong>
