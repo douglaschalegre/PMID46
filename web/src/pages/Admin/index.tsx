@@ -6,36 +6,31 @@ import logo from '../../assets/logo.svg';
 import './styles.css'
 const LandingPage = () => {
 	return(
-		<>
-		<header>	
-       <span>
-				<img src={logo} alt="PMID46" width="48" height="48"/>
-				PMID46
-       </span>
-			<Link to="/admin">
-				<span><FiLogOut/></span>
-				<strong>Sair</strong>
-			</Link>
-		</header>
-
-		<div>
-			<h1>Bem vindo, Douglas!</h1>
-			<Link to="/admin/cadastro">
-				<strong>Cadastrar novo aluno</strong>
-				<span><FiPlus/></span>
-			</Link>
-		</div>
-
-		<div className='white-box'>
-			<p>teste</p>
-			<span>
-				<input placeholder="Matricula"/>
-				<FiSearch/>
-			</span>
+	<div id="page-admin">
+		<div className="content">
 			
-		</div>
+			<header>
+				<div className="header">
+					<div>
+						<img src={logo} alt="PMID46" width="48" height="48"/>
+						<h2 className="icons-space">PMID46</h2>
+					</div>
 
-		</>
+					<div>
+						<Link to="/admin">
+							<FiLogOut size={48}/>
+							<strong className="icons-space">Sair</strong>
+						</Link>
+					</div>
+				</div>
+			</header>
+
+			<main>
+
+
+			</main>
+		</div>
+	</div>
 	)
 }
 
