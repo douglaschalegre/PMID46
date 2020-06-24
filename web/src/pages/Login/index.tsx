@@ -32,16 +32,18 @@ const LandingPage = () => {
 						<form>
 							<div>
 								<label>Login</label>
-								<FiLock/>
+								<FiLock className="icon-left" size={24}/>
 								<input type="text"/>
 							</div>
 							<div>
 								<label>Senha</label>
-								<FiKey/>
+								<FiKey className="icon-left" size={24}/>
 								<input type="password"/>
 							</div>
 							<div className="login-btn">
-								<button>Entrar</button>
+								<Link to="/admin/painel">
+									<button>Entrar</button>
+								</Link>
 							</div>
 						</form>
 					</div>
