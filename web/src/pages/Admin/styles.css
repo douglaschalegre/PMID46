@@ -27,7 +27,7 @@
   align-items: center;
 }
 
-#page-admin .content .header .icons-space{
+.icons-space{
   margin-left: 1rem;
 }
 
@@ -38,6 +38,25 @@
   text-decoration: none;
   font-size: 24px;
 }
+
+#page-admin .content main div{
+  display: flex;
+  justify-content: space-between;
+  margin-top: 56px;
+}
+
+#page-admin .content main h1{
+  font-size: 56px;
+}
+
+#page-admin .content main div a{
+  color: var(--primary-color);
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  font-size: 24px;
+}
+
 
 @media(max-height: 700px ) {
   #page-admin {

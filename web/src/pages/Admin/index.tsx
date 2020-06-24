@@ -19,15 +19,20 @@ const LandingPage = () => {
 					<div>
 						<Link to="/admin">
 							<FiLogOut size={48}/>
-							<strong className="icons-space">Sair</strong>
+							<h4 className="icons-space">Sair</h4>
 						</Link>
 					</div>
 				</div>
 			</header>
 
 			<main>
-
-
+				<div>
+					<h1>Bem vindo, Douglas!</h1>
+					<Link to="/admin/cadastro">
+						<h4>Adicionar aluno</h4>
+						<FiPlus size={48} className="icons-space"/>
+					</Link>
+				</div>
 			</main>
 		</div>
 	</div>
