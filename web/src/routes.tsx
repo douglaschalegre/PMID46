@@ -4,6 +4,7 @@ import { Route, BrowserRouter } from 'react-router-dom';
 import LandingPage from './pages/LandingPage';
 import Login from './pages/Login';
 import Admin from './pages/Admin';
+import Cadastro from './pages/Cadastro';
 
 const Routes = () => {
   return (
@@ -11,6 +12,7 @@ const Routes = () => {
       <Route component={LandingPage} path="/admin" exact />
       <Route component={Login} path="/admin/login" exact />
       <Route component={Admin} path="/admin/painel" exact />
+      <Route component={Cadastro} path="/admin/cadastrar" exact />
     </BrowserRouter>
   );
 }
