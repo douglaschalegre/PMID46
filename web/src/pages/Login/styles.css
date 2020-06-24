@@ -41,11 +41,7 @@
   font-size: 24px;
 }
 
-#page-login .content main .backgroud{
-  height: 100vh;
-}
-
-#page-login .content main div .container-login-form{
+#page-login .content main .container-login-form{
   height: 70vh;
   width: 40vw;
   display: flex;
@@ -56,11 +52,69 @@
   right: 0;
   background-color: #ffffff;
   border-radius: 8px;
-  justify-content: center;
-  align-items: center;
   flex-direction: column;
+  align-items: center;
 }
 
+#page-login .content main .container-login-form h2{
+  font-size: 24px;
+  margin: 88px 0px 0px;
+}
+
+#page-login .content main .container-login-form form{
+  margin: 72px;
+}
+
+#page-login .content main .container-login-form form div{
+  display: flex;
+  flex-direction: column;
+  margin: 24px;
+}
+
+#page-login .content main .container-login-form form div label{
+  margin-bottom: 8px;
+}
+
+#page-login .content main .container-login-form form div input{
+  background: #F0F0F5;
+  border-style: none;
+  border-radius: 8px;
+  height: 56px;
+  width: 460px;
+}
+
+#page-login .content main .container-login-form form .login-btn{
+  display: flex;
+  align-items: center;
+  margin-top: 48px;
+}
+
+#page-login .content main .container-login-form form button{
+  background: var(--primary-color);
+  color: #ffffff;
+  font-weight: 800;
+  height: 56px;
+  width: 264px;
+  border-style: none;
+  border-radius: 8px;
+}
+
+.input-search{
+  z-index: 3;
+}
+.form-content input[type="text"] {
+  padding-left: 40px;
+}
+.form-content {
+  position: relative;
+}
+
+.icon-left {
+  position: absolute;
+  left: 0;
+  top: 13px;
+  margin-left: 1rem;
+}
 
 @media(max-height: 700px ) {
 

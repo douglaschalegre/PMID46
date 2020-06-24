@@ -1,5 +1,5 @@
 import React from 'react';
-import { FiArrowLeft } from 'react-icons/fi'
+import { FiArrowLeft, FiLock, FiKey } from 'react-icons/fi'
 import { Link } from 'react-router-dom';
 
 import './styles.css'
@@ -27,22 +27,24 @@ const LandingPage = () => {
 			</header>
 
 			<main>
-				<div className="backgroud">
 					<div className="container-login-form">
-						<h6>Login</h6>
+						<h2>Login</h2>
 						<form>
 							<div>
 								<label>Login</label>
-								<input/>
+								<FiLock/>
+								<input type="text"/>
 							</div>
 							<div>
 								<label>Senha</label>
-								<input/>
+								<FiKey/>
+								<input type="password"/>
 							</div>
-							<button>Entrar</button>
+							<div className="login-btn">
+								<button>Entrar</button>
+							</div>
 						</form>
 					</div>
-				</div>
 			</main>
 		</div>
 	</div>
