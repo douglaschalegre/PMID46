@@ -33,6 +33,26 @@ const LandingPage = () => {
 						<FiPlus size={48} className="icons-space"/>
 					</Link>
 				</div>
+				<div>
+					<div className="content-component">
+						<div className="content-header">
+							<h4>Alunos</h4>
+							<div>
+								<input type="tel" maxLength={10} placeholder="Matricula"/>
+								<FiSearch size={12} className="icon-search"/>
+							</div>
+						</div>
+					</div>
+					<div className="content-component">
+						<div className="content-header">
+							<h4>Pacientes</h4>
+							<div>
+								<input type="text" placeholder="Nome"/>
+								<FiSearch size={12} className="icon-search"/>
+							</div>
+						</div>
+					</div>
+				</div>
 			</main>
 		</div>
 	</div>
