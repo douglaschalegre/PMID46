@@ -42,6 +42,11 @@ const LandingPage = () => {
 								<FiSearch size={12} className="icon-search"/>
 							</div>
 						</div>
+						<div className="content-data">
+							<p>Douglas Chalegre</p>
+							<p>douglas.chalegre@gmail.com</p>
+							<p>9999999999</p>
+						</div>
 					</div>
 					<div className="content-component">
 						<div className="content-header">
@@ -50,6 +55,13 @@ const LandingPage = () => {
 								<input type="text" placeholder="Nome"/>
 								<FiSearch size={12} className="icon-search"/>
 							</div>
+						</div>
+						<div className="content-data">
+							<p>Matheus Costa</p>
+							<p>Dentistica</p>
+							<p>11</p>
+							<p>8298214848</p>
+							<p>Não atendido</p>
 						</div>
 					</div>
 				</div>
