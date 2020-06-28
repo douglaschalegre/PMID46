@@ -1,10 +1,33 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { FiLogOut, FiPlus, FiSearch } from 'react-icons/fi'
 import { Link } from 'react-router-dom';
+import api from '../../services/api';
 
 import logo from '../../assets/logo.svg';
 import './styles.css'
+
+interface Students{
+	name: string,
+	registration: string,
+	email: string
+}
+
+interface Pacientes{
+	name: string,
+	registration: string,
+	email: string
+}
+
 const LandingPage = () => {
+	const [students, setStudents] = useState<Students[]>([]);
+	const [pacients, setPacients] = useState<Pacientes[]>([]);
+
+	useEffect(() => {
+		api.get('Admin/Alunos').then(response => {
+			setStudents(response.data)
+		})
+	}, []);
+
 	return(
 	<div id="page-admin">
 		<div className="content">
@@ -42,11 +65,14 @@ const LandingPage = () => {
 								<FiSearch size={12} className="icon-search"/>
 							</div>
 						</div>
-						<div className="content-data">
-							<p>Douglas Chalegre</p>
-							<p>douglas.chalegre@gmail.com</p>
-							<p>9999999999</p>
+						{students.map(student =>(
+						<div className="content-data" key={student.registration}>
+							<p>{student.name}</p>
+							<p>{student.email}</p>
+							<p>{student.registration}</p>
 						</div>
+						))
+						}
 					</div>
 					<div className="content-component">
 						<div className="content-header">
