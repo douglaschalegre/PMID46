@@ -1,12 +1,20 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { FiArrowLeft, FiLock, FiKey } from 'react-icons/fi'
 import { Link } from 'react-router-dom';
 
 import './styles.css'
 import logo from '../../assets/logo.svg';
+import AuthContext from '../../contexts/auth';
 
 
 const LandingPage = () => {
+	const {auth, signIn} = useContext(AuthContext);
+	console.log(auth);
+	
+	async function handleSignIn(){
+		await signIn();
+	}
+
 	return(
 	<div id="page-login">
 		<div className="content">
@@ -42,7 +50,7 @@ const LandingPage = () => {
 							</div>
 							<div className="login-btn">
 								<Link to="/admin/painel">
-									<button>Entrar</button>
+									<button onClick={handleSignIn}>Entrar</button>
 								</Link>
 							</div>
 						</form>

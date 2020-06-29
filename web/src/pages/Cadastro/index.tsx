@@ -1,5 +1,5 @@
 import React from 'react';
-import { FiLogOut, FiPlus, FiSearch } from 'react-icons/fi'
+import { FiLogOut } from 'react-icons/fi'
 import { Link } from 'react-router-dom';
 
 import logo from '../../assets/logo.svg';

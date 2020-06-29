@@ -1,6 +1,7 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import { FiLogOut, FiPlus, FiSearch } from 'react-icons/fi'
 import { Link } from 'react-router-dom';
+import AuthContext from '../../contexts/auth';
 import api from '../../services/api';
 
 import logo from '../../assets/logo.svg';
@@ -19,14 +20,19 @@ interface Pacientes{
 }
 
 const LandingPage = () => {
+	const { signOut } = useContext(AuthContext)
 	const [students, setStudents] = useState<Students[]>([]);
-	const [pacients, setPacients] = useState<Pacientes[]>([]);
+	// const [pacients, setPacients] = useState<Pacientes[]>([]);
 
 	useEffect(() => {
 		api.get('Admin/Alunos').then(response => {
 			setStudents(response.data)
 		})
 	}, []);
+
+	function handleSignOut(){
+		signOut();
+	}
 
 	return(
 	<div id="page-admin">
@@ -40,7 +46,7 @@ const LandingPage = () => {
 					</div>
 
 					<div>
-						<Link to="/admin">
+						<Link to="/admin" onClick={handleSignOut}>
 							<FiLogOut size={48}/>
 							<h4 className="icons-space">Sair</h4>
 						</Link>
