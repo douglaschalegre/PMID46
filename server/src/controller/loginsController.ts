@@ -4,6 +4,15 @@ import bcrypt from 'bcrypt';
 import jwt from 'jsonwebtoken';
 import config from '../config/auth';
 
+interface Admin{
+  id: number,
+  name: string,
+  phone: string,
+  email: string,
+  password: string,
+  role: string
+}
+
 class loginsController {
     async admin(request: Request, response: Response) {
       const {
@@ -11,7 +20,7 @@ class loginsController {
         pwd
       } = request.body;
 
-      const admin = await knex('admin')
+      const admin: Admin = await knex('admin')
           .select('admin.*')
           .where('email', user)
           .first();
@@ -21,12 +30,24 @@ class loginsController {
       }
 
       const id = admin.id;
+      const admName = admin.name;
+      const admEmail = admin.email;
+      const admRole = admin.role;
+      const admPhone = admin.phone;
       const token = jwt.sign({id}, config.jwtSecret, {
         expiresIn: 3600
       })
+      
       return response.json({
         auth: true,
-        token: token
+        token: token,
+        user: {
+          id,
+          admName,
+          admPhone,
+          admEmail,
+          admRole
+        }
       });
     }
 
