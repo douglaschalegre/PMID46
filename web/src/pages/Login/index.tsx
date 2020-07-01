@@ -1,14 +1,14 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import { FiArrowLeft, FiLock, FiKey } from 'react-icons/fi'
 import { Link } from 'react-router-dom';
 
 import './styles.css'
 import logo from '../../assets/logo.svg';
-import AuthContext from '../../contexts/auth';
+import useAuth from '../../contexts/auth';
 
 
 const LandingPage = () => {
-	const {auth, signIn} = useContext(AuthContext);
+	const {auth, signIn} = useAuth();
 	console.log(auth);
 	
 	async function handleSignIn(){
