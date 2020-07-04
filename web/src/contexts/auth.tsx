@@ -14,7 +14,7 @@ interface AuthContextData{
   auth: boolean;
   user: User | null;
   loading: boolean;
-  signIn(): Promise<void>;
+  signIn(usr: string, pwd: string): Promise<void>;
   signOut(): void;
 }
 
@@ -39,9 +39,8 @@ export const AuthProvider: React.FC = ({children}) => {
     loadStorageData();
   }, []);
 
-  async function signIn(){
-    const response = await authenticate('douglas@email.com', 'password');
-
+  async function signIn(usr: string, pwd: string){
+    const response = await authenticate(usr, pwd);
     setUser(response.data.user);
     api.defaults.headers['x-access-token'] = `${response.data.token}`
 

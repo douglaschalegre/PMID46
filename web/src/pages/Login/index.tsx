@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { FiArrowLeft, FiLock, FiKey } from 'react-icons/fi'
 import { Link } from 'react-router-dom';
 
@@ -8,11 +8,21 @@ import useAuth from '../../contexts/auth';
 
 
 const LandingPage = () => {
-	const {auth, signIn} = useAuth();
-	console.log(auth);
-	
+	const [usr, setUser] = useState<string>('');
+	const [pwd, setPwd] = useState<string>('');
+
+	const {signIn} = useAuth();
+
+	async function handleUser(e: React.ChangeEvent<HTMLInputElement>){
+		setUser(e.target.value);
+		console.log(e.target.value)
+	}
+	async function handlePassword(e: React.ChangeEvent<HTMLInputElement>){
+		setPwd(e.target.value);
+	}
 	async function handleSignIn(){
-		await signIn();
+		await signIn(usr, pwd);
+		console.log();
 	}
 
 	return(
@@ -41,12 +51,12 @@ const LandingPage = () => {
 							<div>
 								<label>Login</label>
 								<FiLock className="icon-left" size={24}/>
-								<input type="text"/>
+								<input onChange={handleUser} type="text"/>
 							</div>
 							<div>
 								<label>Senha</label>
 								<FiKey className="icon-left" size={24}/>
-								<input type="password"/>
+								<input onChange={handlePassword} type="password"/>
 							</div>
 							<div className="login-btn">
 								<Link to="/admin/painel">
