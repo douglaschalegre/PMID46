@@ -39,6 +39,10 @@
   font-size: 24px;
 }
 
+#page-admin .content .header div a:active{
+  color: #3769A3;
+}
+
 #page-admin .content main div{
   display: flex;
   justify-content: space-between;
@@ -55,6 +59,10 @@
   align-items: center;
   text-decoration: none;
   font-size: 24px;
+}
+
+#page-admin .content main div a:active{
+  color: #3769A3;
 }
 
 #page-admin .content main div .content-component{

@@ -39,6 +39,10 @@
   font-size: 24px;
 }
 
+#page-login .content .header div a:active{
+  color: #3769A3;
+}
+
 #page-login .content main .container-login-form{
   height: 32rem;
   width: 540px;

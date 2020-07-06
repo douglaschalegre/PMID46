@@ -46,6 +46,10 @@
   font-size: 24px;
 }
 
+#page-home .content .header div a:active{
+  color: #3769A3;
+}
+
 #page-home .content main {
   flex: 1;
   max-width: 560px;
