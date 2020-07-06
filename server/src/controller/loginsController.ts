@@ -25,6 +25,7 @@ class loginsController {
           .where('email', user)
           .first();
       
+      if(!admin) return response.status(400).send({ auth: false, error: 'Invalid user or password' });
       if(!await bcrypt.compare(pwd, admin.password)){
         return response.status(400).send({ auth: false, error: 'Invalid user or password' });
       }
