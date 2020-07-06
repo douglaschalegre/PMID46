@@ -41,6 +41,7 @@ export const AuthProvider: React.FC = ({children}) => {
 
   async function signIn(usr: string, pwd: string){
     const response = await authenticate(usr, pwd);
+    console.log(response.data)
     setUser(response.data.user);
     api.defaults.headers['x-access-token'] = `${response.data.token}`
 
